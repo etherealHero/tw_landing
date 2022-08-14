@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Red Hat Display', sans-serif;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1080px]
+  }
+
+  .btn {
+    @apply inline-block bg-lightred text-white px-8 py-[10px] rounded-2xl text-xl -tracking-wide shadow-[0px_0px_30px_rgba(255,13,56,0.21)]
+  }
+
+  input[name="email"]:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #595959;
+    -webkit-text-fill-color: white !important;
+  }
+}
+
+
+.btn-burger {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  background-color: #fff;
+  border: 0;
+  outline: none;
+}
+
+.btn-burger span,
+.btn-burger span::after,
+.btn-burger span::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transition-duration: 0.2s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease;
+}
+
+.btn-burger span::after {
+  transform: translateX(-50%);
+  top: 400%;
+}
+
+.btn-burger span::before {
+  transform: translateX(-50%);
+  top: -400%;
+}
+
+.btn-burger.active span {
+  background: transparent;
+}
+
+.btn-burger.active span::after {
+  transform: rotate(45deg);
+  top: 0;
+  left: 0;
+}
+
+.btn-burger.active span::before {
+  transform: rotate(135deg);
+  top: 0;
+  left: 0;
+}
